@@ -54,7 +54,8 @@ const app = express();
 // the app will start from here
 
 const port=3000;
-const tourRouter = require('./route/tourRouter');  
+const tourRouter = require('./route/tourRouter'); 
+app.use(express.json()); 
 app.use('/tours',tourRouter); // '/tours' yeh home route ban jayega 
 
 app.listen(port,()=>{

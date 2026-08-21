@@ -18,7 +18,30 @@ const getTourById=(req,res)=>{
     }
 }
 
+const createTour = (req, res) => {
+    const newTour = req.body;
+    tourModel.save(newTour);
+    res.status(201).json(newTour);
+}
+
+const updatedTour = (res, req) => {
+    const id = parseInt(req.params.id);
+    const updatedTour = req.body;
+    tourModel.update(id, updatedTour);
+    res.status(200).json({ messsage: 'Tour updated sucessfully'});
+
+}
+
+const deleteTour = (req, res) => {
+    const id = parseInt(req.params.id);
+    tourModel.deleteTour(id);
+    res.status(200).json({message: 'Tour deleted succesfully'})
+}
+
 module.exports={
     getAllTour,
-    getTourById
-}
+    getTourById,
+    createTour,
+    updatedTour,
+    deleteTour
+};
