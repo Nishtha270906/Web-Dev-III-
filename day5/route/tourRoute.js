@@ -5,6 +5,11 @@ const tourController = require('../controller/tourController');
 
 router.get('/',tourController.getAllTour);
 router.get('/:id', tourController.getTourById);
+router.post('/', tourController.createTour);
+router.put('/:id',tourController.updatedTour);
+router.delete('/:id', tourController.deleteTour);
+
+
 
 module.exports = router;
 
